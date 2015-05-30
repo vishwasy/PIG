@@ -1,0 +1,5 @@
+input1 = load '/user/vishwas/shiv' as (line);
+words = foreach input1 generate flatten(TOKENIZE(line)) as word;
+grp = group words by word;
+cnt =  foreach grp generate group, COUNT(words);
+dump cnt;
