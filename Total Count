@@ -1,0 +1,4 @@
+daily = load '/data/stocks/NYSE_Daily';
+grp = group daily all;
+cnt= foreach grp generate group, COUNT(daily);
+dump cnt;
